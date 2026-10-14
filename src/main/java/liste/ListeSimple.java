@@ -4,15 +4,29 @@ public class ListeSimple {
     private long size;
     Noeud tete;
 
+    /**
+     * Donne le nombre d'éléments contenus dans la liste.
+     * @return le nombre d'éléments de la liste
+     */
     public long getSize() {
         return size;
     }
 
+    /**
+     * Ajoute un élément en tête de la liste.
+     * @param element la valeur à ajouter
+     */
     public void ajout(int element) {
         tete = new Noeud(element, tete);
         size++;
     }
 
+    /**
+     * Remplace la première occurrence d'un élément par une nouvelle valeur.
+     * Ne fait rien si l'élément n'est pas dans la liste.
+     * @param element la valeur à rechercher
+     * @param nouvelleValeur la valeur qui remplace l'élément trouvé
+     */
     public void modifiePremier(Object element, Object nouvelleValeur) {
         Noeud courant = tete;
         while (courant != null && courant.getElement() != element)
@@ -44,6 +58,11 @@ public class ListeSimple {
         return sb.toString();
     }
 
+    /**
+     * Supprime la première occurrence d'un élément de la liste.
+     * Ne fait rien si l'élément n'est pas dans la liste.
+     * @param element la valeur à supprimer
+     */
     public void supprimePremier(Object element) {
         if (tete != null) {
             if (tete.getElement() == element) {
@@ -81,6 +100,10 @@ public class ListeSimple {
         } else return null;
     }
 
+    /**
+     * Donne l'avant-dernier noeud de la liste.
+     * @return l'avant-dernier noeud, ou null si la liste contient moins de deux éléments
+     */
     public Noeud getAvantDernier() {
         if (tete == null || tete.getSuivant() == null)
             return null;
@@ -118,6 +141,12 @@ public class ListeSimple {
         return precedent;
     }
 
+    /**
+     * Echange la position de deux noeuds de la liste.
+     * Ne fait rien si les deux noeuds sont identiques.
+     * @param r1 le premier noeud à échanger
+     * @param r2 le second noeud à échanger
+     */
     public void echanger(Noeud r1, Noeud r2) {
         if (r1 == r2)
             return;
