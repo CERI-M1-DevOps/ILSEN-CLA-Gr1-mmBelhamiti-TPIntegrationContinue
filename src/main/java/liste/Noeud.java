@@ -1,5 +1,6 @@
 package liste;
 
+
 public class Noeud {
     private Object element;
     private Noeud suivant;
